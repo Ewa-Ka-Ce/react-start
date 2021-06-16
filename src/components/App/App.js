@@ -6,9 +6,13 @@ class App extends React.Component {
   render() {
     return (
         <main className ={styles.component}>
-          <h1 className={styles.title}>My first React app</h1>
-          <h2 className={styles.subtitle}>Hello world!</h2>
-          <List />
+          <h1 className={styles.title}>Done is better than perfect</h1>
+          <h2 className={styles.subtitle}>Let's get it done</h2>
+          <List title={['Things to do ', <sup>soon!</sup>]}
+          imageSource='images/space.png'
+          children={<p>I'm planning on doing all these things sooner, rather than later!</p>}
+          >
+          </List>
         </main>
     )
   }
