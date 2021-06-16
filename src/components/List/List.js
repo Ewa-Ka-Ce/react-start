@@ -11,7 +11,7 @@ class List extends React.Component {
         <Hero/>
         </section>
    
-    );
+    )
   }
 }
 

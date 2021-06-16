@@ -6,7 +6,6 @@ const Hero = () => (
         <header className ={styles.component}>
           <h2 className={styles.title}>Do it now</h2>
           <img classNames={styles.images} src="images/space.png"/>
-    
         </header>
     );
 
