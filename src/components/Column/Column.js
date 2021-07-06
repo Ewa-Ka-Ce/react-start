@@ -9,13 +9,13 @@ import { settings } from '../../data/dataStore';
 class Column extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    cards: PropTypes.array,
-    icon: PropTypes.string,
+    cards: PropTypes.array.isRequired,
+    icon: PropTypes.string.isRequired,
   }
   state = {
     cards: this.props.cards || [],
   }
-  addCard(title){
+  addCard(title) {
     this.setState(state => (
       {
         cards: [
@@ -23,24 +23,20 @@ class Column extends React.Component {
           {
             key: state.cards.length ? state.cards[state.cards.length-1].key+1 : 0,
             title,
-          }
-        ]
+          },
+        ],
       }
     ));
   }
-  render(){
+  
+  render() {
     return (
       <section className={styles.component}>
-        <h3 className={styles.title}>
-          <span className={styles.icon}>
-            <Icon name={this.props.icon}/>
-          </span>
-          {this.props.title}
-        </h3>
+        <h3 className={styles.title}>{this.props.title}<span className={styles.icon}><Icon name={this.props.icon} /></span></h3>
         {this.state.cards.map(({key, ...cardProps}) => (
-          <Card key={key} {...cardProps}/>
+          <Card key={key} {...cardProps} />
         ))}
-        <Creator text={settings.cardCreatorText} action={title => this.addCard(title)}/>
+        <Creator text={settings.cardCreatorText} action={title => this.addCard(title)} />
       </section>
     );
   }

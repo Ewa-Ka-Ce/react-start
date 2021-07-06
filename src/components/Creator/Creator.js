@@ -24,7 +24,6 @@ class Creator extends React.Component {
       visibleButtons: event.target.value.length > 0,
     });
   }
-
   handleOK = () => {
     if(this.state.value != ''){
       this.props.action(this.state.value);
@@ -36,12 +35,10 @@ class Creator extends React.Component {
   }
 
   handleCancel = () => {
-    if(window.confirm('Do you really want to cancel adding item ?')){
-      this.setState({
-        value: '',
-        visibleButtons: false,
-      });
-    }
+    this.setState({
+      value: '',
+      visibleButtons: false,
+    });
   }
 
   render() {
@@ -54,7 +51,7 @@ class Creator extends React.Component {
           onChange={this.handleChange}
         />
         <div className={styles.buttons + (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')}>
-          <Button onClick={this.handleOK} variant=''>OK</Button>
+          <Button onClick={this.handleOK}>OK</Button>
           <Button onClick={this.handleCancel} variant='danger'>cancel</Button>
         </div>
       </div>
